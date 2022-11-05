@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <div class="background"><embed src="background.svg" /></div>
+    <div class="dvia-box">
+      <div class="dvia-shadow"></div>
+      <embed src="logo-light.svg" class="dvia-logo" />
+    </div>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: black;
+      }
+      .background {
+        margin: 0;
+        padding: 0;
+        position: absolute;
+        width: 100%;
+        left: 0;
+        bottom: 0;
+        overflow: hidden;
+      }
+      .dvia-box {
+        width: 50%;
+        position: absolute;
+        bottom: 10px;
+        left: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .dvia-shadow {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        border-radius: 100%;
+        transform: translate(-50%, -50%);
+        box-shadow: -100px 200px 1000px 500px black;
+      }
+      .dvia-logo {
+        color: white;
+        z-index: 10;
+      }
+    </style>
+  </body>
+</html>
