@@ -1,25 +1,102 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh">
+  <head>
+    <title>DVIA</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8" />
+  </head>
   <body>
-    <div class="background"><embed src="background.svg" /></div>
-    <div class="dvia-box">
-      <div class="dvia-shadow"></div>
-      <embed src="logo-light.svg" class="dvia-logo" />
+    <div class="background"></div>
+    <div class="diva">
+      <div class="dvia-box">
+        <div class="dvia-shadow"></div>
+        <embed src="logo-light.svg" class="dvia-logo" />
+      </div>
+      <div class="join">
+        <button onclick="follow()"><b>FOLLOW US</b></button>
+        <script>
+          function follow() {
+            window.location.href = "https://space.bilibili.com/473013658";
+          }
+        </script>
+      </div>
     </div>
     <style>
+      @font-face {
+        font-family: "xyber bold";
+        src: url(XYBER-Bold.otf);
+      }
+      @font-face {
+        font-family: "xyber outline";
+        src: url(XYBER-Outline.otf);
+      }
       body {
         margin: 0;
         padding: 0;
         background-color: black;
+      }
+      button {
+        display: block;
+        width: 80%;
+        height: 60%;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        border-style: solid;
+        border-color: white;
+        border-width: 20px;
+        border-radius: 0;
+        background-color: transparent;
+        color: white;
+        text-align: center;
+        font-family: "xyber bold";
+        font-size: 5vh;
+        transition-duration: 0.4s;
+      }
+      button:hover {
+        display: block;
+        width: 80%;
+        height: 60%;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        border-style: solid;
+        border-color: white;
+        border-width: 20px;
+        border-radius: 0;
+        background-color: transparent;
+        color: white;
+        text-align: center;
+        font-family: "xyber bold";
+        font-size: 6vh;
+        box-shadow: 0 0 10000px 100vw red;
+      }
+      .join {
+        z-index: 20;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 45%;
+        height: 30%;
+        text-align: center;
+      }
+      .dvia {
+        position: absolute;
+        bottom: 0;
       }
       .background {
         margin: 0;
         padding: 0;
         position: absolute;
         width: 100%;
-        left: 0;
-        bottom: 0;
+        height: 100vh;
         overflow: hidden;
+        background-image: url(background.svg);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
       }
       .dvia-box {
         width: 50%;
