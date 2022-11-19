@@ -6,13 +6,34 @@
     <meta charset="utf-8" />
   </head>
   <body id="body">
+    <div style="display: none" id="notice"></div>
     <div id="main">
       <script>
         const ua = String(navigator.userAgent).toLowerCase();
         console.log(ua);
         if (ua.includes("iphone") || ua.includes("android")) {
-          document.getElementById("body").innerHTML =
-            "Mobile devices are not support.";
+          function hengshuping() {
+            let notice = document.getElementById("notice");
+            let main = document.getElementById("main");
+            if (window.orientation == 180 || window.orientation == 0) {
+              document.getElementById("notice").innerText = "请横屏查看";
+              notice.setAttribute("style", "");
+              main.setAttribute("style", "display: none");
+            }
+            if (window.orientation == 90 || window.orientation == -90) {
+              notice.setAttribute("style", "display: none");
+              main.setAttribute("style", "");
+            }
+          }
+          hengshuping();
+          window.addEventListener(
+            "onorientationchange" in window ? "orientationchange" : "resize",
+            hengshuping,
+            false
+          );
+        }
+        function jump(thelocation) {
+          window.location.href = thelocation;
         }
       </script>
       <div class="background"></div>
@@ -21,13 +42,19 @@
           <div class="dvia-shadow"></div>
           <embed src="logo-light.svg" class="dvia-logo" />
         </div>
-        <div class="join">
-          <button onclick="follow()">FOLLOW US!</button>
-          <script>
-            function follow() {
-              window.location.href = "https://space.bilibili.com/473013658";
-            }
-          </script>
+        <div>
+          <div class="learn">
+            <button
+              onclick="jump('https\:\/\/sdyzdvia.notion.site\/6cf4dfabd5f040b0857e2e2d66474242')"
+            >
+              Learn More!
+            </button>
+          </div>
+          <div class="join">
+            <button onclick="jump('https:\/\/space.bilibili.com\/473013658')">
+              FOLLOW US!
+            </button>
+          </div>
         </div>
       </div>
     </div>
@@ -54,7 +81,7 @@
         transform: translate(-50%, -50%);
         border-style: solid;
         border-color: white;
-        border-width: 15px;
+        border-width: 2vh;
         border-radius: 0;
         background-color: transparent;
         color: white;
@@ -74,7 +101,7 @@
         transform: translate(-50%, -50%);
         border-style: solid;
         border-color: red;
-        border-width: 25px;
+        border-width: 3vh;
         border-radius: 0;
         background-color: red;
         color: black;
@@ -82,11 +109,20 @@
         font-family: "xyber bold";
         font-size: 7vh;
         text-shadow: 0 0 10px 10px;
-        box-shadow: 0 0 10000px 100vw red;
+
         overflow: hidden;
       }
+      .learn {
+        z-index: 100;
+        position: absolute;
+        bottom: 20vh;
+        right: 0;
+        width: 45%;
+        height: 30%;
+        text-align: center;
+      }
       .join {
-        z-index: 20;
+        z-index: 100;
         position: absolute;
         bottom: 0;
         right: 0;
